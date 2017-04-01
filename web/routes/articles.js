@@ -48,12 +48,22 @@ Router.route('/')
 
 Router.route('/:article_id')
     .get(function(req, res, next){
-        res.json('Hello');
+        Article.findOne({
+            _id: req.params.article_id
+        })
+                .exec(function(err, art){
+                    res.json(err || art);
+                });
     });
 
 Router.route('/url/:url')
     .get(function(req, res, next){
-        res.json(decodeURI(req.params.url));
+        Article.findOne({
+                    url: decodeURI(req.params.url)
+        })
+                .exec(function(err, art){
+                    res.json(err || art);
+                });
     });
 
 module.exports = Router;

@@ -9,7 +9,8 @@ function injectPopin(){
 }
 
 function reqListener () {
-    console.log(this);
+    var response = JSON.parse(this.responseText);
+    console.log(response);
 } 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
