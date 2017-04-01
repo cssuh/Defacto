@@ -320,6 +320,14 @@
         "isSatire" : false
     },
     {
+        "site_name" : "Reuters",
+        "site_url" : "http://www.reuters.com/",
+        "search_url" : " ",
+        "rating" : 5,
+        "bias" : "Moderate",
+        "isSatire" : false
+    },
+    {
         "site_name" : "The Rush Limbaugh Show",
         "site_url" : "https://www.rushlimbaugh.com/",
         "search_url" : " ",
