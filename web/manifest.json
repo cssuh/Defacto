@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Defacto",
+  "version": "1.0.0",
+  "description": "This corrects false news.",
+
+  "browser_action": {
+    "default_icon": "defacto_img.png",
+    "default_title": "Defacto"
+  },
+ 
+  "background": {
+    "scripts": ["eventpage.js"],
+    "persistent": true
+  },
+  
+  "permissions": [
+    "notifications",
+    "contextMenus",
+    "activeTab",
+    "https://ajax.googleapis.com/*",
+    "storage"
+  ]
+}
