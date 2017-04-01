@@ -19,18 +19,65 @@ baseURL : localhost:3000/api/
 <table>
     <tr>
         <th> Endpoint </th>
-        <th> Method </th>
-        <th> Description </th>
-        <th> Params </th>
+        <th> API </th>
     </tr>
     <tr>
         <td> /Article </td>
-        <td> GET </td>
-        <td> Returns a list of recently uploaded articles </td>
-        <td> 
+        <td>
             <table>
                 <tr>
-                    <td>Limit</td><td>The number of articles to return</td>
+                    <th> Method </th>
+                    <th> Description </th>
+                    <th> Params/Body </th>
+                </tr>
+                <tr>
+                    <td> GET </td>
+                    <td> Returns a list of recently uploaded articles </td>
+                    <td> 
+                        <table>
+                            <tr>
+                                <td>limit</td><td>The number of articles to return per page</td>
+                            </tr>
+                            <tr>
+                                <td>page</td><td>The page to return</td>
+                            </tr>
+                            <tr>
+                                <td>sort</td><td>The field used to sort results. Possible values: "rating"</td>
+                            </tr>
+                            <tr>
+                                <td>order</td><td>The order results are sorted in. Possible values: "asc", "desc"</td>
+                            </tr>
+                            <tr>
+                                <td>rge</td><td>Only return articles with rating greater than or equal to a value</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td> POST </td>
+                    <td> Creates a new article </td>
+                    <td> 
+                        <table>
+                            <tr>
+                                <td>title</td><td>Article Title</td>
+                            </tr>
+                            <tr>
+                                <td>Authors</td><td>Comma seperated list of authors</td>
+                            </tr>
+                            <tr>
+                                <td>site</td><td>Name/Url of website article was found on</td>
+                            </tr>
+                            <tr>
+                                <td>url</td><td>URL of article</td>
+                            </tr>
+                            <tr>
+                                <td>comments</td><td>Comments that should be included with the new article</td>
+                            </tr>
+                            <tr>
+                                <td>published</td><td>Article publication date</td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
             </table>
         </td>
