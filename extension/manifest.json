@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "DeFacto",
+  "version": "1.0.0",
+  "description": "Get da facts, yo!",
+
+  "content_scripts":[{
+      "matches" : ["<all_urls>"],
+      "js" : ["popin/popin.js"],
+      "css" : ["popin/popin.css"]
+  }],
+ 
+  "background": {
+    "scripts": ["contextMenu.js"],
+    "persistent": true
+  },
+ 
+ "icons": {
+   "128": "images/icon/128.png"
+ },
+  
+  "permissions": [
+    "notifications",
+    "contextMenus",
+    "activeTab"
+  ]
+}
