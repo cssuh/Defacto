@@ -1,0 +1,53 @@
+site_name,site_url,search_url,rating(1-5), bias(Conservative, Moderate, Liberal),Satire(T/F) ;
+
+ABC News,http://abcnews.go.com/, ,4,Moderate,F
+Al Jazeera,http://www.aljazeera.com/, ,5,Moderate,F
+The Associated Press,https://www.apnews.com/, ,5,N/A,F
+BBC,http://www.bbc.com/news/world, ,5,Moderate,F
+The Blaze,http://www.theblaze.com/, ,1,Conservative,F
+Bloomberg,https://www.bloomberg.com/, ,5,Liberal,F
+Breitbart,http://www.breitbart.com/, ,2,Conservative,F
+Borowitz Report,http://www.newyorker.com/humor/borowitz-report, ,1,Liberal,T
+Buzzfeed,https://www.buzzfeed.com/, ,1,Liberal,F
+CBS News,http://www.cbsnews.com/, ,4,Liberal,F
+C-Span,https://www.c-span.org/, ,5,N/A,F
+CNN,http://www.cnn.com/, ,4,Liberal,F
+Cracked,http://www.cracked.com/, ,1,N/A,T
+The Daily Bongo,http://thedailybongo.com/, ,1,N/A,T
+Daily Kos,http://www.dailykos.com/, ,2,Liberal,F
+Drudge Report,http://drudgereport.com/, ,3,Conservative,F
+The Economist,http://www.economist.com/, ,5,Liberal,F
+The Ed Schultz Show,http://wegoted.com/, ,4,Liberal,F
+Forbes,https://www.forbes.com/, ,5,Conservative,F
+Fox News,http://www.foxnews.com/, ,2,Conservative,F
+The Glenn Beck Program,http://www.glennbeck.com/, ,2,Conservative,F
+Google News,https://news.google.com/, ,4,Liberal,F
+The Guardian,https://www.theguardian.com/us, ,5,Liberal,F
+The Huffington Post,http://www.huffingtonpost.com/, ,2,N/A,F
+InfoWars,https://www.infowars.com/, ,1,Conservative,F
+Los Angeles Times,http://www.latimes.com/, ,4,Liberal,F
+The Mercury News,http://www.mercurynews.com/, ,4,Liberal,F
+Mother Jones,http://www.motherjones.com/, ,3,Liberal,F
+MSNBC,http://www.msnbc.com/, ,2,Liberal,F
+National Report,http://nationalreport.net/, ,1,N/A,T
+NBC News,http://www.nbcnews.com/, ,4,Liberal,F
+The New Yorker,http://www.newyorker.com/, ,4,Liberal,F
+New York Daily News,http://www.nydailynews.com/, ,4,Moderate,F
+New York Post,http://nypost.com/, ,4,Conservative,F
+The New York Times,https://www.nytimes.com/, ,5,Liberal,F
+NPR,http://www.npr.org/, ,4,Liberal,F
+The Onion,http://www.theonion.com/, ,1,Moderate,T
+PBS,http://www.pbs.org/, ,5,Liberal,F
+Politico,http://www.politico.com/, ,4,Moderate,F
+Politifact,http://www.politifact.com/, ,5,Moderate,F
+The Rush Limbaugh Show,https://www.rushlimbaugh.com/, ,1,Conservative,F
+The Sean Hannity Show,http://www.hannity.com/, ,2,Conservative,F
+Slate,http://www.slate.com/, ,3,Liberal,F
+Snopes,http://www.snopes.com/, ,5,N/A,F
+ThinkProgress,https://thinkprogress.org/, ,3,Moderate,F
+Unreal Times,http://www.theunrealtimes.com/, ,1,N/A,T
+USA Today,http://www.usatoday.com/, ,4,Moderate,F
+The Wall Street Journal,https://www.wsj.com/, ,5,Conservative,F
+The Washington Post,https://www.washingtonpost.com/, ,4,N/A,F
+Waterford Whisperer,http://www.waterfordwhispersnews.com, ,1,N/A,T
+Yahoo News,https://www.yahoo.com/news/, ,3,Liberal,F
