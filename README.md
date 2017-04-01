@@ -15,7 +15,7 @@ DeFacto's RESTful API can provide useful information such as:
 - Article sentiment (A rating of the article's positivity)
 
 ### Endpoints
-baseURL : localhost:3000/api/
+baseURL : localhost:3000/api/  
 | Endpoint | Method | Description | Params |
 |----------|--------|--------|-------------|
 | /Article | GET   | Returns a list of recently uploaded articles. |  |
