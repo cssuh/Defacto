@@ -1,6 +1,7 @@
 // impports
 var express = require('express');
 var path = require('path');
+var port = process.env.PORT || 8081;
 //var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -34,6 +35,6 @@ app.use('/', express.static('public/index.html'));
 app.use('/api', api);
 app.use('/api/articles', articles);
 
-app.listen(3000, function () {
-  console.log('listening on port 3000!')
+app.listen(port, function () {
+  console.log('listening on port '+ port);
 })
