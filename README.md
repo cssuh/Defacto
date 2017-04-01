@@ -1,7 +1,8 @@
 # Defacto
-An open sourced initiative to stop the dissemination of so called "fake news" and "alternative facts."
+An open source, crowd sourcing information initiative to stop the dissemination of so called "fake news" and "alternative facts."
 
-DeFacto utilizes machine learning techniques as well as other apps
+DeFacto utilizes machine learning techniques as well as other apis to help you determine whether or not news sources are credible.
+DeFacto also collects helpful data about news sources that can be used for data analysis, tracking, and machine learning seeding.
 
 - Actively collects information on credible and non-credible sources/articles
 - Machine learning and NLP
@@ -22,7 +23,7 @@ baseURL : localhost:3000/api/
         <th> API </th>
     </tr>
     <tr>
-        <td> /Article </td>
+        <td> Article </td>
         <td>
             <table>
                 <tr>
@@ -75,6 +76,41 @@ baseURL : localhost:3000/api/
                             </tr>
                             <tr>
                                 <td>published</td><td>Article publication date</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td> Article/url/:url </td>
+        <td>
+            <table>
+                <tr>
+                    <th> Method </th>
+                    <th> Description </th>
+                    <th> Params/Body </th>
+                </tr>
+                <tr>
+                    <td> GET </td>
+                    <td> Searches for an article by its url in the database </td>
+                    <td> 
+                        <table>
+                            <tr>
+                                <td>url</td><td>The url of the article to be searched. The url must be escaped or uri encoded.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td> PUT </td>
+                    <td> Searches for an article by its url in the database and if found uploads it as a comment. </td>
+                    <td> 
+                        <table>
+                            <tr>
+                                <td>Comment</td><td>The comment text</td>
+                                <td>Author</td><td>The author of the comment</td>
                             </tr>
                         </table>
                     </td>
