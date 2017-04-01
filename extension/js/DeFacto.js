@@ -4,18 +4,25 @@
 (function(frame){
     // check for XMLHttpRequest
     const XMLHttpRequest = window.XMLHttpRequest;
+
+    let cached = [];
+
     if(!XMLHttpRequest)
         return false;
     
+    
+    
     const endpoints = {
         baseUrl : "http://localhost:3000/api",
-        articles : "http://localhost:3000/api/articles"
+        articles : "http://localhost:3000/api/articles/",
+        articlesByUrl : "http://localhost:3000/api/articles/url/"
     }
     /**
      * DeFacto js API for interacting with DeFacto REST api
      */
     class DeFacto{
-        constructor(...args){
+        constructor(article, ...args){
+            Object.assign(this, article);
         }
         /**
          * 
@@ -25,32 +32,54 @@
 
         }
         /**
-         * 
+         * Updates the article
+         * @param {*} params 
+         */
+        update(params){
+
+        }
+        /**
+         * Gets all articles
          * @param {Object} obj 
          */
-        static getArticles(obj){
+        static getArticles(obj, callback){
+            var req = new XMLHttpRequest(),
+                reqUrl = endpoints.articles;
+            req.addEventListener("load", function(){
+                // expects an array
+                var result = [];
+                if(this.response){
+                    result = this.response.map(function(article){
+                        return new DeFacto(article);
+                    });
+                }
+                if (typeof callback == "function")
+                    callback(result);
 
+            });
+            req.responseType = "json"; // expect JSON as response
+            req.open('GET', reqUrl, true);
+            req.send();
         }
         /**
          * Checks if an article exists using its url
          * returns new Defacto instance if found, null if not
          */
         static findArticleByUrl(url, callback){
-            var request = new XMLHttpRequest;
-            
-            var requestUrl = endpoints.articles + url;
-            request.addEventListener("load", reqListener);
-            request.open('GET', encodeURIComponent(requestUrl), true);
-            request.send();
-            // if not found - return null
-            if(request.status === 404){
-                return null;
-            }
-            // if found - return new Defacto instance
-            else{
-                article = new Defacto();
-                return article;
-            }
+            var req = new XMLHttpRequest(),
+                reqUrl = endpoints.articlesByUrl + encodeURIComponent(extractDomain(url));
+            req.addEventListener("load", function(){
+                // expects a single result
+                var result = null;
+                if(this.response){
+                    result = new DeFacto(result);
+                }
+                if (typeof callback == "function")
+                    callback(result);
+            });
+            req.responseType = "json"; // expect JSON as response
+            req.open('GET', reqUrl, true);
+            req.send();
         }
         /**
          * Makes a post request to add an article to the database
@@ -73,6 +102,25 @@
         static get endpoints(){
             return endpoints;
         }
+    }
+    /**
+     * extracts domain from a url
+     * @param {*} url 
+     */
+    function extractDomain(url) {
+        var domain;
+        //find & remove protocol (http, ftp, etc.) and get domain
+        if (url.indexOf("://") > -1) {
+            domain = url.split('/')[2];
+        }
+        else {
+            domain = url.split('/')[0];
+        }
+
+        //find & remove port number
+        domain = domain.split(':')[0];
+
+        return domain;
     }
     frame.DeFacto = DeFacto;
 })(window);

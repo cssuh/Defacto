@@ -123,10 +123,30 @@ baseURL : localhost:3000/api/
 </table>
 
 #### Response
+Sites Response
 ```js
-/*
- * Article Response Fields
- */
+{
+    // title of website
+    title : String,
+    // url of website
+    url : String,
+    // website description
+    descr : String,
+    // search url for site
+    search_url : String,
+    // type of website bias
+    bias : String,
+    // whether or not the website is satire
+    isSatire : Boolean,
+    // average rating for website's credibility
+    rating : Number,
+    // for selecting information (?) 
+    selectors : [{field : String, selector : String}],
+}
+```
+
+Articles
+```js
 {
     // title of article
     title : String,

@@ -16,7 +16,7 @@ var Article = require('../mongo/models/Article');
 Router.route('/')
     .get(function(req,res,next){
        Article.find()
-        .limit()
+        .limit(req.query.limit || 10)
         .sort()
         .exec( function(err, Articles){
             res.json(err || Articles);
