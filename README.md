@@ -110,6 +110,8 @@ baseURL : localhost:3000/api/
                         <table>
                             <tr>
                                 <td>Comment</td><td>The comment text</td>
+                            </tr>
+                            <tr>
                                 <td>Author</td><td>The author of the comment</td>
                             </tr>
                         </table>
@@ -154,15 +156,17 @@ baseURL : localhost:3000/api/
 ```
 
 
-## DeFacto.js
+# DeFacto.js
 DeFacto's JS library allows you to interact with our API easily.
 
-### Methods
+## Get Articles
 
-## Extension
-[The DeFacto Chrome Extension]()
+## Write Comment
+After obtaining an article a comment can be written on that article using:
 
+```js
+DeFactoInstance.addComment(params : Object);
+```
 
-
-
-Chris Suh, Khauri McClain, Noor Rahman, Colin Lightfoot
+# Chrome Extension
+[The DeFacto Chrome Extension](https://link-to-extension-on-chrome.com) utilizes DeFacto.js as well as the RESTful API to provide user-contributed fact checking to every website.
