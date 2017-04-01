@@ -10,13 +10,13 @@
     if(!XMLHttpRequest)
         return false;
     
-    
-    
     const endpoints = {
         baseUrl : "http://localhost:3000/api",
-        articles : "http://localhost:3000/api/articles/",
-        articlesByUrl : "http://localhost:3000/api/articles/url/"
+        articles : this.baseUrl + "/articles/",
+        articlesByUrl : this.baseUrl + "/articles/url/"
     }
+
+    let API_Key = "";
     /**
      * DeFacto js API for interacting with DeFacto REST api
      */
@@ -28,14 +28,20 @@
          * 
          * @param {*} comment 
          */
-        addComment(commentText, text){
-
+        addComment(commentText, author){
+            this.comments.push({author : commentText, comment : commentText })
         }
         /**
          * Updates the article
          * @param {*} params 
          */
         update(params){
+            
+        }
+        /**
+         * Saves the information back into the database
+         */
+        save(){
 
         }
         /**
@@ -101,6 +107,13 @@
 
         static get endpoints(){
             return endpoints;
+        }
+        /**
+         * TODO:
+         * Sets the API key used to interact with DeFacto API
+         */
+        static setAPIKey(key){
+
         }
     }
     /**

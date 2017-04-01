@@ -1,9 +1,63 @@
 .defacto-popin{
     position : fixed;
-    top: 0;
-    left : 0;
+    bottom: 8px;
+    right : 8px;
     width : 300px;
     height : 300px;
     background-color : white;
+    z-index : 99999;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display : flex;
+    flex-direction : column;
+}
+.defacto-loading-spinner{
+    position : absolute;
+    top : 0;
+    left : 0;
+    bottom : 0;
+    right : 0;
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items : center;
+    background-color : white;
+}
+.defacto-loading-spinner.hidden{
+    display : none;
+}
+.defacto-spinner-img{
+    width : 75px;
+    height : 75px;
+}
+.defacto-menu{
+    display : flex;
+    flex-direction : column;
+}
+
+.defacto-menu-item{
+    background-color : white;
+    border : 1px solid lightgrey;
+    display : flex;
+    flex-direction : row;
+}
+
+.defacto-menu-item-dropdown{
+    display : none;
+    min-height : 100px;
+}
+.defacto-menu-item:focus{
+    outline : none;
+}
+.defacto-menu-item:focus .defacto-menu-item-dropdown{
+    display : flex;
+}
+.defacto-menu-item-title{
+    padding : 5px 10px;
+    border-bottom : 1px solid lightgray;
+}
+.defacto-menu-item-title::before{
+    content : "►";
+}
+.defacto-menu-item:focus .defacto-menu-item-title::before{
+    content : "▼";
 }

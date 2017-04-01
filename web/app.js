@@ -28,7 +28,9 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', api);
+app.use(express.static('public'));
+
+app.use('/', express.static('public/index.html'));
 app.use('/api', api);
 app.use('/api/articles', articles);
 
