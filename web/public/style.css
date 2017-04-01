@@ -1,24 +1,34 @@
+html{
+    height : 100%;
+    width : 100%;
+    padding : 0;
+    margin : 0;
+}
 body{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color : rgba(0,0,0,.87);
     width: 100%;
     height: 100%;
     padding: 0px;
     margin: 0px;
-    background: #2fccff no-repeat; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#2fccff, white) no-repeat; /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#2fccff, white) no-repeat; /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#2fccff, white) no-repeat; /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#2fccff, white) no-repeat; /* Standard syntax */
+    background: white no-repeat; /* For browsers that do not support gradients */
+   /* background: linear-gradient(#2fccff, white) no-repeat;*/ /* Standard syntax */
+   background: -moz-linear-gradient(top, rgba(201,242,255,1) 0%, rgba(246,246,246,1) 28%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(201,242,255,1)), color-stop(28%, rgba(246,246,246,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(201,242,255,1) 0%, rgba(246,246,246,1) 28%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(201,242,255,1) 0%, rgba(246,246,246,1) 28%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(201,242,255,1) 0%, rgba(246,246,246,1) 28%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(201,242,255,1) 0%, rgba(246,246,246,1) 28%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9f2ff', endColorstr='#ffffff', GradientType=0 );
 }
 
 .root{
-    width: 100%;
     height: 100%;
     display:flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+
 }
 
 .root>*{
@@ -41,8 +51,9 @@ body{
     text-align: center;
 }
 
-h1 {
+h1.title {
     text-align:center;
+    font-size : 3.5em;
 }
 
 input {
@@ -62,4 +73,25 @@ input:focus {
     border: 3px solid #555;
 }
 
-
+.footer{
+    color : rgba(0,0,0,.57);
+    font-weight : 600;
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+}
+.footer .part{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    margin : 20px;
+    text-align: center;
+}
+.footer .image{
+    margin : 15px auto;
+}
+.footer img{
+    min-height : 200px;
+    min-width : 210px;
+    background-color : white;
+}
