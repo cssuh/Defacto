@@ -1,3 +1,22 @@
+[
+    {
+        "site_name" : "",
+        "site_url" : "",
+        "search_url" : null,
+        "rating" : 0,
+        "bias" : "",
+        "isSatire" : false
+    },
+    {
+        "site_name" : "ABC News",
+        "site_url" : "http://abcnews.go.com/",
+        "search_url" : null,
+        "rating" : 4,
+        "bias" : "Moderate",
+        "isSatire" : false
+    }
+]
+
 site_name,site_url,search_url,rating(1-5), bias(Conservative, Moderate, Liberal),Satire(T/F) ;
 
 ABC News,http://abcnews.go.com/, ,4,Moderate,F
