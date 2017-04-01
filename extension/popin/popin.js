@@ -1,4 +1,5 @@
 var popin_open = false;
+// assume DeFacto in namespace already
 var baseUrl = "http://localhost:3000/api/articles/url/";
 
 function injectPopin(){
@@ -10,6 +11,9 @@ function injectPopin(){
 
 function reqListener () {
     var response = JSON.parse(this.responseText);
+    if(response){
+
+    }
     console.log(response);
 } 
 chrome.runtime.onMessage.addListener(
