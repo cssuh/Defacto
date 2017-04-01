@@ -16,12 +16,26 @@ DeFacto's RESTful API can provide useful information such as:
 
 ### Endpoints
 baseURL : localhost:3000/api/  
-| Endpoint | Method | Description | Params |
-|----------|--------|--------|-------------|
-| /Article | GET   | Returns a list of recently uploaded articles. |  |
-| /Article/url/:encoded_url | GET | Returns an article given its url | |
-| /Article | POST  | Upload a new article | |
-| /Site    | GET   | Returns information
+<table>
+    <tr>
+        <th> Endpoint </th>
+        <th> Method </th>
+        <th> Description </th>
+        <th> Params </th>
+    </tr>
+    <tr>
+        <td> /Article </td>
+        <td> GET </td>
+        <td> Returns a list of recently uploaded articles </td>
+        <td> 
+            <table>
+                <tr>
+                    <td>Limit</td><td>The number of articles to return</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 #### Response
 ```js
