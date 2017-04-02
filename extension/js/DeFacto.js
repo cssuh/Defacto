@@ -2,7 +2,7 @@
  * DeFacto library
  */
 (function(frame){
-    let debugging = true;
+    let debugging = false;
     // check for XMLHttpRequest
     const XMLHttpRequest = window.XMLHttpRequest;
 
@@ -123,6 +123,7 @@
             var reqUrl = endpoints.articles; //+ encodeURIComponent(extractDomain(obj));
 
             var params = JSON.stringify({
+                text : obj.text,
                 title : obj.title,
                 url : obj.url,
                 site_url : extractDomain(obj.url),
