@@ -8,6 +8,18 @@
 
     var popin = false;
     var artifact;
+    var x = null;
+    var y = null;
+
+    document.addEventListener('contextmenu', onMouseUpdate, false);
+    /**
+     * update mouse position on mousedown in order to know where to put box
+     * @param {*} e 
+     */
+    function onMouseUpdate(e) {
+        x = e.pageX;
+        y = e.pageY;
+    }
     /**
      * listens for the context menu
      */
@@ -16,11 +28,9 @@
             if(!popin){
                 injectPopin();
             }
-            if(request.text){
-                // injectPopin();
-                // createAnnotationWindow();
-                // open up a box to analyze the page as well
-            }
+            loadThisPage();
+            wrapSelectedText();
+            injectAnnotator(x, y);
         }
     );
 
@@ -62,18 +72,26 @@
                         "</div>";
         document.body.appendChild(pop);
         popin = pop;
-        loadThisPage();
     }
+    
+    let annotator;
     /**
      * Searches document for specific text then wraps in span tag (?)
      * @param {*} text 
      * @param {*} x 
      * @param {*} y 
      */
-    function injectAnnotator(text, x, y){
-        var pop = document.createElement('div');
-            pop.innerHTML = "<div>"+
-                            "</div>";
+    function injectAnnotator(x, y){
+        // get current mouse position
+        if(!annotator){
+
+        }else{
+            var pop = document.createElement('div');
+                pop.innerHTML = "<div class='defacto-annotator' style='top:"+(x+10)+"px;left:"+(y+10)+"px;position:absolute;'>"+
+                                "</div>";
+            annotator = pop;
+            document.body.appendChild(pop);
+        }
     }
     /**
      * Gets all text on a webpage 
@@ -105,6 +123,21 @@
                     title : "",
                 });
             }
+            console.log(artifact);
         });
+    }
+
+    function wrapSelectedText(){
+        var selection= window.getSelection().getRangeAt(0);
+        var selectedText = selection.extractContents();
+        var span= document.createElement("span");
+            span.style.backgroundColor = "yellow";
+            span.appendChild(selectedText);
+            selection.insertNode(span);
+    }
+
+    function generateRatings(num){
+        num = Math.max(0, Math.min(num, 5));
+        return("x".repeat(num)+"o".repeat(5 - num))
     }
 })();
