@@ -10,7 +10,7 @@ DeFacto also collects helpful data about news sources that can be used for data 
 
 ## REST API
 DeFacto's RESTful API can provide useful information such as:  
-- Truthiness rating on articles
+- Truthfulness rating on articles
 - User submitted fact checks
 - Satire rating
 - Article sentiment (A rating of the article's positivity)
