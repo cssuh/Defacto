@@ -2,7 +2,7 @@
  * DeFacto library
  */
 (function(frame){
-    let debugging = true;
+    let debugging = false;
     // check for XMLHttpRequest
     const XMLHttpRequest = window.XMLHttpRequest;
 
