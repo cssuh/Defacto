@@ -167,6 +167,10 @@ Articles
     keywords : [String],
     // user-moderated content on particular article
     comments : [{author : String, comment : String}],
+    // sentiment rating
+    sentiment : Number,
+    // truthfulness
+    truthfulness : Number,
     // date article was published
     published: {
         default: Date.now(),
