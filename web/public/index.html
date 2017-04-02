@@ -12,6 +12,9 @@
             <a href="about.html" class="link">About</a>
         </div>
         <div class="root">
+            <div class="search-results">
+
+            </div>
             <div class="branding">
                 <h1 class='title'>DeFacto</h1>
             </div>
@@ -39,7 +42,49 @@
                     </div>
                 </div>
             </div>
+            <script src="DeFacto.js"></script>
+            <script>
+                let s = document.querySelector('.search-bar'),
+                    r = document.querySelector('.root'),
+                    res = document.querySelector('.search-results');
+                let doneTypingInterval = 220, 
+                    typingTimer;
+                // waits for you to stop typing
+                s.addEventListener('keyup', function(e){
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(done, doneTypingInterval);
+                    return false;
+                });
+                s.addEventListener('keydown',function(e){
+                    clearTimeout(typingTimer);
+                    return false;
+                })
+                function done(){
+                    let text = s.value;
+                    if(text.replace(/\s/gi,"").length >= 5){
+                        DeFacto.search(text, populateResults);
+                        if(!r.classList.contains('searching'))
+                            r.classList.add('searching');
+                    }else{
+                        if(r.classList.contains('searching'))
+                            r.classList.remove('searching');
+                    }
+                    return false;
+                }
 
+                function populateResults(arr){
+                    console.log(arr);
+                    res.innerHTML = "<div class='result-wrapper'>"+
+                        arr.map(function(a){
+                                //console.log(a);
+                             return "<div class='search-result'>"+
+                                        `<a href='${a.url || "#" }'>${a.title || "Untitled Article"}</a> <a href='#'>${a.authors.join()}</a>`+
+                                        `<p>${(a.summary || "")}</p>`+
+                                    "</div>";
+                            }).join("")+
+                        "</div>";
+                }
+            </script>
         </div>
     </body>
 

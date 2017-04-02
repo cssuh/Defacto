@@ -16,12 +16,16 @@ var Article = require('../mongo/models/Article');
 // returns all articles
 Router.route('/')
     .get(function(req,res,next){
-       Article.find()
-        .limit(req.query.limit || 10)
-        .sort()
-        .exec( function(err, Articles){
-            res.json(err || Articles);
-        });
+        let limit = req.query.limit || 10;
+        let pages = req.query.pages || 0;
+        let Start = req.query.search ? Article.find({$text:{$search : req.query.search }}) : Article.find();
+        Start
+            .skip(pages * limit)
+            .limit(req.query.limit || 10)
+            //.populate('')
+            .exec( function(err, Articles){
+                res.json(err || Articles);
+            });
     })
     .post(function(req,res,next){
         var text = req.body.text;

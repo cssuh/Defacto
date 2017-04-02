@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var shortid = require('shortid');
 
-module.exports = mongoose.model('Article', new mongoose.Schema({
+let Schema = new mongoose.Schema({
     // title of article
     title : String,
     // author(s) of article
@@ -31,4 +31,6 @@ module.exports = mongoose.model('Article', new mongoose.Schema({
         type: String,
         default: shortid.generate
     }
-}));
+});
+Schema.index({'$**': 'text'});
+module.exports = mongoose.model('Article', Schema);
