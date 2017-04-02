@@ -2,18 +2,19 @@
  * DeFacto library
  */
 (function(frame){
+    let debugging = true;
     // check for XMLHttpRequest
     const XMLHttpRequest = window.XMLHttpRequest;
 
     let cached = [];
+    let baseUrl = debugging ? "http://localhost:8081/api" : "http://lowcost-env.cb4wunhcrv.us-east-1.elasticbeanstalk.com/api";
 
     if(!XMLHttpRequest)
         return false;
     
     const endpoints = {
-        baseUrl : "http://localhost:3000/api",
-        articles : this.baseUrl + "/articles/",
-        articlesByUrl : this.baseUrl + "/articles/url/"
+        articles : baseUrl + "/articles/",
+        articlesByUrl : baseUrl + "/articles/url/"
     }
 
     let API_Key = "";
@@ -29,7 +30,7 @@
          * @param {*} comment 
          */
         addComment(commentText, author){
-            this.comments.push({author : commentText, comment : commentText })
+            this.comments.push({author : author, comment : commentText })
         }
         /**
          * Updates the article
@@ -39,9 +40,17 @@
             
         }
         /**
-         * Saves the information back into the database
+         * Saves the information back into the database with put. TODO
          */
         save(){
+
+        }
+        /**
+         * Search for articles
+         * @param {*} term 
+         * @param {*} calback 
+         */
+        static searchArticles(term, calback){
 
         }
         /**
@@ -73,12 +82,12 @@
          */
         static findArticleByUrl(url, callback){
             var req = new XMLHttpRequest(),
-                reqUrl = endpoints.articlesByUrl + encodeURIComponent(extractDomain(url));
+                reqUrl = endpoints.articlesByUrl + encodeURIComponent(url);
             req.addEventListener("load", function(){
                 // expects a single result
                 var result = null;
                 if(this.response){
-                    result = new DeFacto(result);
+                    result = new DeFacto(this.response);
                 }
                 if (typeof callback == "function")
                     callback(result);
@@ -93,7 +102,29 @@
          * Calls callback with new DeFacto instance
          */
         static addArticle(obj, callback){
+            var req = new XMLHttpRequest();
+            var reqUrl = endpoints.articles; //+ encodeURIComponent(extractDomain(obj));
 
+            var params = JSON.stringify({
+                title : obj.title,
+                url : obj.url,
+                site_url : extractDomain(obj.url),
+                descr : obj.desc,
+                search_url : obj.search_url,
+                bias : obj.bias,
+                isSatire : obj.isSatire,
+                rating : obj.rating,
+            });
+            req.addEventListener('load',function(){
+                let resp = JSON.parse(this.response);
+                if(resp.article){
+                    if(typeof callback == "function")
+                        callback(new DeFacto(resp.article));
+                }
+            })
+            req.open('POST', reqUrl, true);
+            req.setRequestHeader("Content-type", "application/json");
+            req.send(params);
         }
         /**
          * Adds a site to the database
@@ -121,6 +152,8 @@
      * @param {*} url 
      */
     function extractDomain(url) {
+        if(!url)
+            return "";
         var domain;
         //find & remove protocol (http, ftp, etc.) and get domain
         if (url.indexOf("://") > -1) {

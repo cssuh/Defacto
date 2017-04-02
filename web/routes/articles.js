@@ -41,20 +41,23 @@ Router.route('/')
             message: "request sent",
             article : article,
         });
-        /* article.save(function(err, art) {
-        });*/
+        article.save();
+        // text analytics
         TA(text, function(data){
             console.log(data);
-            /*article.update({
-                
-            }).save();*/
+            if(data && data.documents)
+                article.update({
+                    sentiment : data.documents[0].score    
+                }).save();
         });
-        /*SMMRY(text, function(data){
-            article.update({
-                summary : data.sm_api_content,
-                keywords : data.sm_api_keyword_array
-            }).save();
-        });*/
+        // summarize text
+        SMMRY(text, function(data){
+            if(data && data.sm_api_content)
+                article.update({
+                    summary : data.sm_api_content,
+                    keywords : data.sm_api_keyword_array
+                }).save();
+        });
     });
 
 Router.route('/:article_id')
@@ -69,9 +72,10 @@ Router.route('/:article_id')
 
 Router.route('/url/:url')
     .get(function(req, res, next){
+        console.log(req.params.url);
         Article.findOne({
-                    url: decodeURI(req.params.url)
-        })
+                url: decodeURI(req.params.url)
+             })
                 .exec(function(err, art){
                     res.json(err || art);
                 });
