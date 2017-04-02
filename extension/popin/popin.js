@@ -33,14 +33,21 @@
                         "<div class='defacto-menu'>"+
                             "<button class='defacto-menu-item summary'>"+
                                 "<div class='defacto-menu-item-title'>"+
-                                    "Summary" +
+                                    "Article Summary" +
                                 "</div>"+
                                 "<div class='defacto-menu-item-dropdown'>"+
                                 "</div>"+
                             "</button>"+
                             "<button class='defacto-menu-item article-information'>"+
                                 "<div class='defacto-menu-item-title'>"+
-                                    "About this article" +
+                                    "About this Article" +
+                                "</div>"+
+                                "<div class='defacto-menu-item-dropdown'>"+
+                                "</div>"+
+                            "</button>"+
+                            "<button class='defacto-menu-item related-articles'>"+
+                                "<div class='defacto-menu-item-title'>"+
+                                    "Related Articles" +
                                 "</div>"+
                                 "<div class='defacto-menu-item-dropdown'>"+
                                 "</div>"+
@@ -84,14 +91,7 @@
             }
             a.push(n);
         }
-
-        return a.sort(function(a,b){
-                    a.textContent.length < b.textContent.length
-                })
-                .map(function(a){ 
-                    return a.textContent;
-                })
-                .join("");
+        return a.join("");
     }
     /**
      * Loads the current annotations and such into the page

@@ -3,12 +3,15 @@
     bottom: 8px;
     right : 8px;
     width : 300px;
-    height : 300px;
     background-color : white;
     z-index : 99999;
+    opacity : .45;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     display : flex;
     flex-direction : column;
+}
+.defacto-popin:hover{
+    opacity : 1;
 }
 .defacto-loading-spinner{
     position : absolute;
@@ -53,11 +56,12 @@
 }
 .defacto-menu-item-title{
     padding : 5px 10px;
-    border-bottom : 1px solid lightgray;
 }
 .defacto-menu-item-title::before{
+    margin-right : 4px;
     content : "►";
 }
 .defacto-menu-item:focus .defacto-menu-item-title::before{
+    margin-right : 4px;
     content : "▼";
 }

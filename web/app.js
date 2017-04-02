@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 /* Setup API routes */
 var api = require('./routes/api');
 var articles = require('./routes/articles');
+var sites = require('./routes/site');
 
 //var comments = require('./routes/content/comments');
 
@@ -34,7 +35,10 @@ app.use(express.static('public'));
 app.use('/', express.static('public/index.html'));
 app.use('/api', api);
 app.use('/api/articles', articles);
+app.use('/api/sites', sites);
 
 app.listen(port, function () {
   console.log('listening on port '+ port);
+  // seed database
+  //require('./datasets/seedDatabase')();
 })
